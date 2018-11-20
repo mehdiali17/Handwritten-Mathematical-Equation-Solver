@@ -1,7 +1,7 @@
 # Artificial Intelligence final project repository.
 
 Project name: 
-Disease Prediction System.
+Hand Written Mathamatical equation solver.
 
 Details: 
-This system will learn a specific pattern from the provided training data and then it will be able to predict future patients that which disease do they have. The training data will have symptoms that a person was facing and what disease was he eventually diagnosed with.
+This system will first localize the provided input and then use [TSNE embeddings](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html) to recognize digits. After this it will use [WolframAlpha](https://www.wolframalpha.com/) to solve this equation and display the result.
