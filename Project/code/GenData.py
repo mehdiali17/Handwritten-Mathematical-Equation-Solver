@@ -7,10 +7,9 @@ import TrainAndTest as tr
 MIN_CONTOUR_AREA = 100
 MAX_CONTOUR_AREA = 1000
 modeAppend=1
-img="../images/training/all7.png"
 RESIZED_IMAGE_WIDTH = 20
 RESIZED_IMAGE_HEIGHT = 30
-def main():
+def Train(img):
     imgTrainingNumbers = cv2.imread(img)            # read in training numbers image
 
     if imgTrainingNumbers is None:                          # if image was not read successfully
@@ -102,23 +101,26 @@ def main():
 
     print ("\n\ntraining complete !!\n")
     if (modeAppend==1):
-	    f1=open("learned/classifications1.txt",'ab')
+	    f1=open("learned/classifications.txt",'ab')
 	    np.savetxt(f1, npaClassifications)           # write flattened images to file
 	    f1.close()
-	    f2=open("learned/flattened_images1.txt", 'ab')
+	    f2=open("learned/flattened_images.txt", 'ab')
 	    np.savetxt(f2, npaFlattenedImages)
 	    f2.close()
     else:
-	    np.savetxt("learned/classifications1.txt", npaClassifications)           # write flattened images to file
-	    np.savetxt("learned/flattened_images1.txt", npaFlattenedImages)          #
+	    np.savetxt("learned/classifications.txt", npaClassifications)           # write flattened images to file
+	    np.savetxt("learned/flattened_images.txt", npaFlattenedImages)          #
     cv2.destroyAllWindows()             # remove windows from memory
 
     return
 
 ###################################################################################################
-if __name__ == "__main__":
-    main()
-	
-
-
-
+img="../images/training/"
+#for i in range(7):
+#	Train(img+"all"+str(i+1)+".png")
+#for i in range(4):
+#	Train(img+"numbers"+str(i+1)+".png")
+#for i in range(2):
+#	Train(img+"symbols"+str(i+1)+".png")	
+#Train(img+"numbers2.png")
+#Train(img+"symbols2.png")

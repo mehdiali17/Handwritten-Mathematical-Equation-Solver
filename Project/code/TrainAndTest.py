@@ -79,7 +79,7 @@ def Test(imagePath):
     validContoursWithData = []              # we will fill these shortly
 
     try:
-        npaClassifications = np.loadtxt("learned/classifications1.txt", np.float32)                  # read in training classifications
+        npaClassifications = np.loadtxt("learned/classifications.txt", np.float32)                  # read in training classifications
     except:
         print ("error, unable to open classifications.txt, exiting program\n")
         os.system("pause")
@@ -87,7 +87,7 @@ def Test(imagePath):
     # end try
 
     try:
-        npaFlattenedImages = np.loadtxt("learned/flattened_images1.txt", np.float32)                 # read in training images
+        npaFlattenedImages = np.loadtxt("learned/flattened_images.txt", np.float32)                 # read in training images
     except:
         print ("error, unable to open flattened_images.txt, exiting program\n")
         os.system("pause")
@@ -136,7 +136,7 @@ def Test(imagePath):
         if contourWithData.checkIfContourIsValid():             # check if valid
             validContoursWithData.append(contourWithData)       # if so, append to valid contour list
 
-    print(validContoursWithData)
+#    print(validContoursWithData)
     validContoursWithData=adjustOverlaps(validContoursWithData)
     validContoursWithData.sort(key = operator.attrgetter("intRectX"))         # sort contours from left to right
 
@@ -177,6 +177,8 @@ def Test(imagePath):
 
 ###################################################################################################
 eq="../images/test/"
-for i in range (9,16):
-    res=Test(eq+str(i+1)+".png")
-    wa.getResult(res)
+#for i in range (18):
+#    res=Test(eq+str(i+1)+".png")
+#    wa.getResult(res)
+res=Test(eq+str(20)+".png")
+wa.getResult(res)

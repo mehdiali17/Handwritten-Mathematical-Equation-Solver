@@ -56,4 +56,4 @@ def resolveListOrDict(variable):
 		return variable[0]["plaintext"]
 	else:
 		return variable["plaintext"]
-getResult("x3 + 9x = 0")
+#getResult("x3 + 9x = 0")
